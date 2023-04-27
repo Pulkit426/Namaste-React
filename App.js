@@ -1997,11 +1997,16 @@ const Body = () => {
     )
 }
 
+const Footer = () => {
+    return
+}
+
 const App = () => {
     return (
         <div className="app">
             <Header />
             <Body />
+            <Footer />
         </div>
     )
 }
