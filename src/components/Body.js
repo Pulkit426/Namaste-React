@@ -1,6 +1,6 @@
 import ResCard from "./ResCard"
 import resList from "../utils/mockData"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState(resList)
@@ -8,6 +8,17 @@ const Body = () => {
 
     const filterDataBySearch = () => {
         return resList.filter(res => res.data.name.includes(searchText))      
+    }
+
+    useEffect( () => {
+        getAllRestaurants()
+    }, [])
+
+    async function getAllRestaurants(){
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001")
+        const json = await data.json()
+
+        setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards)
     }
 
     return (
