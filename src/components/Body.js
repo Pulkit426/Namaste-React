@@ -1,5 +1,6 @@
 import ResCard from "./ResCard"
 import { useState, useEffect } from "react"
+import ShimmerUI from "./ShimmerUI"
 
 const Body = () => {
     const [allRestaurants, setAllRestaurants] = useState([])
@@ -22,7 +23,8 @@ const Body = () => {
         setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards)
     }
 
-    return (
+    return allRestaurants.length === 0 ? <ShimmerUI /> :  
+    (
         <div className="body">
             <div className="search">
                 <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)} />

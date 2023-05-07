@@ -57,3 +57,10 @@
 .search>button{
     margin: 10px;
 }
+
+.shimmer-text{
+    width: 160px;
+    height: 15px;
+    background-color: lightgray;
+    margin: 10px;
+}
