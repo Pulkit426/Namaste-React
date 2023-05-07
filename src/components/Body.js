@@ -27,6 +27,10 @@ const Body = () => {
             <div className="search">
                 <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                 <button onClick={() => { searchText && setFilteredRestaurants(filterDataBySearch()) }}> Search </button>
+                <button onClick= {() => {
+                    setFilteredRestaurants(allRestaurants)
+                    setSearchText('')
+                    }}> Reset </button>
             </div>
             <div className="filter"> 
                 <button className="filter-btn" onClick={() => {
