@@ -72,3 +72,9 @@
     padding: 10px;
     margin: 30px 10px;
 }
+
+.res-menu-card-container{
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+}
