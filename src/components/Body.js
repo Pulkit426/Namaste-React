@@ -2,6 +2,7 @@ import ResCard from "./ResCard"
 import { useState, useEffect } from "react"
 import ShimmerUI from "./ShimmerUI"
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
     const [allRestaurants, setAllRestaurants] = useState([])
@@ -23,6 +24,10 @@ const Body = () => {
         setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards)
         setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards)
     }
+
+    const isOnline = useOnline()
+
+    if(!isOnline) return <h1> 🔴 OFFLINE !! PLEASE CHECK YOUR INTERNET </h1>
 
     return allRestaurants.length === 0 ? <ShimmerUI /> :  
     (
