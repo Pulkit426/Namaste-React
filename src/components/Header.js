@@ -6,24 +6,24 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="header">
-      <img src={LOGO_URL} className="logo" />
+    <div className="flex justify-between bg-orange-300 p-2 mb-3 shadow-lg">
+      <img src={LOGO_URL} className="h-20 m-2 p-2" />
 
       <nav className="nav-links">
-        <ul>
-          <li>
+        <ul className="flex m-5">
+          <li className="p-2">
             {" "}
             <Link to="/"> Home </Link>{" "}
           </li>
-          <li>
+          <li className="p-2">
             {" "}
             <Link to="/about"> About </Link>{" "}
           </li>
-          <li>
+          <li className="p-2">
             {" "}
             <Link to="/contact"> Contact </Link>{" "}
           </li>
-          <li> Cart </li>
+          <li className="p-2"> Cart </li>
         </ul>
       </nav>
 
