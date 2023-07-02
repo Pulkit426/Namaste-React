@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
+import Instamart from "./components/Instamart";
 
 const App = () => {
   return (
@@ -36,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/instamart",
+        element: <Instamart />,
       },
       {
         path: "/restaurant/:id",
