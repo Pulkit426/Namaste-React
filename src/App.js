@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,13 +9,21 @@ import About from "./components/About";
 import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
 import Instamart from "./components/Instamart";
+import UserContext from "./utils/UserContext";
 
 const App = () => {
+  const [user, setUser] = useState({
+    name: null,
+    email: null,
+  });
+
   return (
     <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };
