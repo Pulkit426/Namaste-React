@@ -16,11 +16,12 @@ const ResMenu = () => {
   return resData === null ? (
     <ShimmerUI />
   ) : (
-    <div className="res-menu-card-container">
+    <div className="flex p-2 m-2 gap-3">
       <div>
         <h1> Res ID: {resData?.cards[0]?.card?.card?.info?.id} </h1>
         <h1> {resData?.cards[0]?.card?.card?.info?.name} </h1>
         <img
+          className="h-48 w-96"
           src={CDN_URL + resData?.cards[0]?.card?.card?.info?.cloudinaryImageId}
         />
         <h2>{resData?.cards[0]?.card?.card?.info?.areaName} </h2>
@@ -31,7 +32,11 @@ const ResMenu = () => {
 
       <ul>
         {menuCardData?.map((item) => (
-          <li key={item?.card?.info?.id}> {item?.card?.info?.name}</li>
+          <li key={item?.card?.info?.id}>
+            {" "}
+            {item?.card?.info?.name}{" "}
+            <button className="bg-green-100 p-2 m-2"> Add </button>
+          </li>
         ))}
       </ul>
     </div>
