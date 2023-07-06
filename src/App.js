@@ -10,6 +10,8 @@ import Error from "./components/Error";
 import ResMenu from "./components/ResMenu";
 import Instamart from "./components/Instamart";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -18,13 +20,13 @@ const App = () => {
   });
 
   return (
-    <div className="app">
+    <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <Header />
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </div>
+    </Provider>
   );
 };
 
