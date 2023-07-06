@@ -12,6 +12,7 @@ import Instamart from "./components/Instamart";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -55,6 +56,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <ResMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
