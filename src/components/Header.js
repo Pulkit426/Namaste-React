@@ -2,11 +2,13 @@ import { LOGO_URL } from "../utils/constants";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const { user, setUser } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between bg-orange-300 p-2 mb-3 shadow-lg">
@@ -32,7 +34,7 @@ const Header = () => {
           </Link>
           <Link to="/cart">
             {" "}
-            <li className="p-2"> Cart </li>{" "}
+            <li className="p-2"> Cart - {cartItems.length}</li>{" "}
           </Link>
         </ul>
       </nav>

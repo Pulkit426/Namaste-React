@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { CDN_URL } from "../utils/constants";
 import ShimmerUI from "./ShimmerUI";
 import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ResMenu = () => {
   const params = useParams();
@@ -12,6 +14,12 @@ const ResMenu = () => {
   const menuCardData =
     resData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
       ?.itemCards;
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return resData === null ? (
     <ShimmerUI />
@@ -35,7 +43,13 @@ const ResMenu = () => {
           <li key={item?.card?.info?.id}>
             {" "}
             {item?.card?.info?.name}{" "}
-            <button className="bg-green-100 p-2 m-2"> Add </button>
+            <button
+              className="bg-green-100 p-2 m-2"
+              onClick={() => handleAddItem(item?.card?.info)}
+            >
+              {" "}
+              Add{" "}
+            </button>
           </li>
         ))}
       </ul>
