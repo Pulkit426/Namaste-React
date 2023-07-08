@@ -1,3 +1,3 @@
 # Namaste React 🚀
 
-- Completed Till episode 09
+- Completed Till episode 12
