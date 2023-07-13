@@ -4,7 +4,8 @@
   "description": "This is Namaste React",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,11 @@
   },
   "homepage": "https://github.com/Pulkit426/Namaste-React#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.6.1",
+    "jest": "^29.6.1",
     "parcel": "^2.1.1",
     "postcss": "^8.4.24",
     "process": "^0.11.10",
@@ -24,6 +30,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "jest-environment-jsdom": "^29.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
