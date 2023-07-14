@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div className="flex justify-between bg-orange-300 p-2 mb-3 shadow-lg">
-      <img src={LOGO_URL} className="h-20 m-2 p-2" />
+      <img data-testid="logo" src={LOGO_URL} className="h-20 m-2 p-2" />
 
       <nav className="nav-links">
         <ul className="flex m-5">
@@ -34,7 +34,9 @@ const Header = () => {
           </Link>
           <Link to="/cart">
             {" "}
-            <li className="p-2"> Cart - {cartItems.length}</li>{" "}
+            <li className="p-2" data-testid="cart">
+              Cart - {cartItems.length}
+            </li>{" "}
           </Link>
         </ul>
       </nav>
@@ -60,6 +62,7 @@ const Header = () => {
         </button>
       ) : (
         <button
+          data-testid="login-btn"
           className="login-btn"
           onClick={() => {
             setIsLoggedIn(true);
@@ -69,8 +72,7 @@ const Header = () => {
             });
           }}
         >
-          {" "}
-          Login{" "}
+          Login
         </button>
       )}
     </div>
