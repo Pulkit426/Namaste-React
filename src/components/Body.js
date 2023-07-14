@@ -39,6 +39,7 @@ const Body = () => {
     <div className="body">
       <div className="p-2 m-2 bg-orange-100">
         <input
+          data-testid="search-input"
           className="p-2"
           placeholder="Search"
           type="text"
@@ -46,6 +47,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
+          data-testid="search-btn"
           className="m-2 p-2 shadow-md bg-purple-200 rounded-md"
           onClick={() => {
             searchText && setFilteredRestaurants(filterDataBySearch());
@@ -80,11 +82,14 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap m-5 p-5">
+      <div className="flex flex-wrap m-5 p-5" data-testid="res-list">
         {filteredRestaurants.map((restaurant) => (
-          <Link to={"/restaurant/" + restaurant.data.id}>
+          <Link
+            to={"/restaurant/" + restaurant.data.id}
+            key={restaurant.data.id}
+          >
             {" "}
-            <ResCard key={restaurant.data.id} resData={restaurant} />{" "}
+            <ResCard resData={restaurant} />{" "}
           </Link>
         ))}
       </div>

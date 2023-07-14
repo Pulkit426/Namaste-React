@@ -6,7 +6,11 @@ const ShimmerUI = () => {
     cardList.push(<ShimmerCard key={Math.floor(Math.random() * 10101)} />);
   }
 
-  return <div className="res-container">{cardList}</div>;
+  return (
+    <div className="res-container" data-testid="shimmer-ui">
+      {cardList}
+    </div>
+  );
 };
 
 export default ShimmerUI;
