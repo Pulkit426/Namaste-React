@@ -4,6 +4,7 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import store from "../../utils/store";
 import { StaticRouter } from "react-router-dom/server";
 import { RESTAURANT_DATA } from "../../utils/data";
+import { act } from "react-dom/test-utils";
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
@@ -26,12 +27,14 @@ test("Shimmer loads on Homepage", () => {
 });
 
 test("Restaurant Cards loads on Homepage", async () => {
-  const body = render(
-    <StaticRouter>
-      <Provider store={store}>
-        <Body />
-      </Provider>
-    </StaticRouter>
+  const body = await act(async () =>
+    render(
+      <StaticRouter>
+        <Provider store={store}>
+          <Body />
+        </Provider>
+      </StaticRouter>
+    )
   );
 
   await waitFor(() => expect(body.getByTestId("search-btn")));
@@ -41,12 +44,14 @@ test("Restaurant Cards loads on Homepage", async () => {
 });
 
 test("Search for string(food) on Homepage", async () => {
-  const body = render(
-    <StaticRouter>
-      <Provider store={store}>
-        <Body />
-      </Provider>
-    </StaticRouter>
+  const body = await act(async () =>
+    render(
+      <StaticRouter>
+        <Provider store={store}>
+          <Body />
+        </Provider>
+      </StaticRouter>
+    )
   );
 
   await waitFor(() => expect(body.getByTestId("search-btn")));
