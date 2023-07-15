@@ -38,12 +38,13 @@ const ResMenu = () => {
         <h2>{resData?.cards[0]?.card?.card?.info?.costForTwo / 100} for Two</h2>
       </div>
 
-      <ul>
+      <ul data-testid="res-menu">
         {menuCardData?.map((item) => (
           <li key={item?.card?.info?.id}>
             {" "}
             {item?.card?.info?.name}{" "}
             <button
+              data-testid="add-btn"
               className="bg-green-100 p-2 m-2"
               onClick={() => handleAddItem(item?.card?.info)}
             >
